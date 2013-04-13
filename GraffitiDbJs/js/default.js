@@ -1,4 +1,5 @@
-﻿/// <reference path="app.js" />
+﻿/// <reference path="//Microsoft.WinJS.1.0/js/base.js" />
+/// <reference path="app.js" />
 // For an introduction to the Blank template, see the following documentation:
 // http://go.microsoft.com/fwlink/?LinkId=232509
 (function () {
@@ -14,7 +15,7 @@
             if (args.detail.previousExecutionState !== activation.ApplicationExecutionState.terminated) {
                 // TODO: This application has been newly launched. Initialize
                 // your application here.
-                GraffitiDb.initialize();
+                GraffitiX.initialize();
             } else {
                 // TODO: This application has been reactivated from suspension.
                 // Restore application state here.

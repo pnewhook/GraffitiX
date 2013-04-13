@@ -1,10 +1,11 @@
-﻿/// <reference path="//Microsoft.WinJS.1.0/js/base.js" />
+﻿/// <reference path="/Bing.Maps.JavaScript/js/veapicore.js" />
+/// <reference path="//Microsoft.WinJS.1.0/js/base.js" />
 
 (function () {
     "use strict";
 
     var dataArray = [
-        { longitude: -58.35577, latitude: -34.632961,  img: "../images/art/IMG_3877.jpg", title: "Buenos Aires 4" },
+        { longitude: -58.35577, latitude: -34.632961, img: "../images/art/IMG_3877.jpg", title: "Buenos Aires 4" },
         { longitude: -58.381391, latitude: -34.620636, img: "../images/art/IMG_3941.jpg", title: "Buenos Aires 5" },
         { longitude: -58.359504, latitude: -34.629147, img: "../images/art/IMG_3953.jpg", title: "Buenos Aires 2" },
         { longitude: -58.365984, latitude: -34.640199, img: "../images/art/IMG_3976.jpg", title: "Buenos Aires 3" },
@@ -17,14 +18,30 @@
         { longitude: -71.613479, latitude: -33.048907, img: "../images/art/IMG_4446.jpg", title: "Valparaiso 6" },
         { longitude: -71.617727, latitude: -33.048745, img: "../images/art/IMG_4449.jpg", title: "Valparaiso 7" },
         { longitude: -71.610861, latitude: -33.045939, img: "../images/art/IMG_4465.jpg", title: "Valparaiso 8" },
-        { longitude: -71.609659, latitude: -33.04817,  img: "../images/art/IMG_4469.jpg", title: "Valparaiso 9" },
+        { longitude: -71.609659, latitude: -33.04817, img: "../images/art/IMG_4469.jpg", title: "Valparaiso 9" },
         { longitude: -70.652046, latitude: -33.441218, img: "../images/art/Santiago_1.jpg", title: "Santiago 2" },
         { longitude: -70.657883, latitude: -33.441075, img: "../images/art/Santiago_2.jpg", title: "Santiago 2" },
         { longitude: -70.653334, latitude: -33.441648, img: "../images/art/Santiago_3.jpg", title: "Santiago 3" },
         { longitude: -70.649385, latitude: -33.437745, img: "../images/art/Santiago_4.jpg", title: "Santiago 4" }
     ];
-    var tags = new WinJS.Binding.List(dataArray);
+    var tags = new WinJS.Binding.List([]);
+
+    tags.oniteminserted = function (eventInfo) {
+            var item = eventInfo.detail.value;
+            WinJS.log("Adding image " + item.title, "binding", "info");
+            var loc = new Microsoft.Maps.Location(item.latitude, item.longitude);
+            var pin = new Microsoft.Maps.Pushpin(loc);
+            GraffitiX.map.entities.push(pin);
+    };
+    
+    var addLocations = function() {
+        dataArray.forEach(function(v) {
+            tags.push(v);
+        });
+    };
+
     WinJS.Namespace.define("GraffitiX", {
-        taglist: tags
+        taglist: tags,
+        addLocations: addLocations
     });
 })();

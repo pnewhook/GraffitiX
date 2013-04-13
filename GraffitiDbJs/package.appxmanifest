@@ -1,48 +1,27 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/2010/manifest">
-
-  <Identity
-    Name="503f70f3-f854-4ca2-9dcb-cb9abcf57835"
-    Version="1.0.0.0"
-    Publisher="CN=Peter" />
-
+  <Identity Name="503f70f3-f854-4ca2-9dcb-cb9abcf57835" Version="1.0.0.0" Publisher="CN=Peter" />
   <Properties>
     <DisplayName>GraffitiDbJs</DisplayName>
     <PublisherDisplayName>Peter</PublisherDisplayName>
     <Logo>images\storelogo.png</Logo>
   </Properties>
-
   <Prerequisites>
     <OSMinVersion>6.2.1</OSMinVersion>
     <OSMaxVersionTested>6.2.1</OSMaxVersionTested>
   </Prerequisites>
-
   <Resources>
     <Resource Language="x-generate" />
   </Resources>
-
   <Applications>
-    <Application 
-      Id="App"
-      StartPage="default.html">
-
-      <VisualElements
-        DisplayName="GraffitiDbJs"
-        Logo="images\logo.png"
-        SmallLogo="images\smalllogo.png"
-        Description="GraffitiDbJs"
-        ForegroundText="light"
-        BackgroundColor="#464646">
-
-        <DefaultTile ShowName="allLogos" />
+    <Application Id="App" StartPage="default.html">
+      <VisualElements DisplayName="GraffitiDbJs" Logo="images\logo.png" SmallLogo="images\smalllogo.png" Description="GraffitiDbJs" ForegroundText="light" BackgroundColor="#464646">
+        <DefaultTile ShowName="allLogos" WideLogo="images\wide.png" />
         <SplashScreen Image="images\splashscreen.png" />
-
       </VisualElements>
     </Application>
   </Applications>
-
   <Capabilities>
     <Capability Name="internetClient" />
   </Capabilities>
-
 </Package>
