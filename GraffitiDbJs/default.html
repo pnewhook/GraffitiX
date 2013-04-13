@@ -21,17 +21,9 @@
     <div id="container">
         <div id="thumbnails">
             <div id="tagListItemTemplate" data-win-control="WinJS.Binding.Template">
-                <div>
-                    <div class="graffitiThumbnail">
-<!--                        <img data-win-bind="alt: title, src:img"/>-->
-                    </div>
-                    <div class="graffifiDetails">
-                        <div class="graffitiTitle" data-win-bind="innerText: title"></div>
-                        <span class="graffitiArtist" data-win-bind="innerText: artist"></span>
-                    </div>
-                </div>
+                <img class="thumbnailImage" data-win-bind="alt: title; src:img" />
             </div>
-            <div data-win-control="WinJS.UI.ListView" data-win-options="{itemDataSource: GraffitiX.taglist.dataSource, itemTemplate: select('#tagListItemTemplate')}"></div> 
+            <div data-win-control="WinJS.UI.ListView" data-win-options="{itemDataSource: GraffitiX.taglist.dataSource, itemTemplate: select('#tagListItemTemplate')}"></div>
         </div>
         <div id="mapDiv">
             bar

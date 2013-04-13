@@ -15,6 +15,11 @@
     -ms-grid-column: 2;
     position: relative;
 }
+
+.thumbnailImage {
+    height: 110px;
+    width: 110px;
+}
 @media screen and (-ms-view-state: fullscreen-landscape) {
 }
 

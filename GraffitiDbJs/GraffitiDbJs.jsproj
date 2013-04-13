@@ -54,6 +54,24 @@
       <SubType>Designer</SubType>
     </AppxManifest>
     <Content Include="default.html" />
+    <Content Include="images\art\IMG_3877.JPG" />
+    <Content Include="images\art\IMG_3941.JPG" />
+    <Content Include="images\art\IMG_3953.JPG" />
+    <Content Include="images\art\IMG_3976.JPG" />
+    <Content Include="images\art\IMG_3985.JPG" />
+    <Content Include="images\art\IMG_4418.JPG" />
+    <Content Include="images\art\IMG_4423.JPG" />
+    <Content Include="images\art\IMG_4428.JPG" />
+    <Content Include="images\art\IMG_4437.JPG" />
+    <Content Include="images\art\IMG_4443.JPG" />
+    <Content Include="images\art\IMG_4446.JPG" />
+    <Content Include="images\art\IMG_4449.JPG" />
+    <Content Include="images\art\IMG_4465.JPG" />
+    <Content Include="images\art\IMG_4469.JPG" />
+    <Content Include="images\art\Santiago_1.jpg" />
+    <Content Include="images\art\Santiago_2.jpg" />
+    <Content Include="images\art\Santiago_3.jpg" />
+    <Content Include="images\art\Santiago_4.jpg" />
     <Content Include="images\logo.png" />
     <Content Include="images\smalllogo.png" />
     <Content Include="images\splashscreen.png" />
