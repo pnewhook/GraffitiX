@@ -30,10 +30,16 @@
             var item = eventInfo.detail.value;
             WinJS.log("Adding image " + item.title, "binding", "info");
             var loc = new Microsoft.Maps.Location(item.latitude, item.longitude);
-            var pin = new Microsoft.Maps.Pushpin(loc);
+            var pin = new Microsoft.Maps.Pushpin(loc, { text: eventInfo.detail.index.toString() });
+            Microsoft.Maps.Events.addHandler(pin, 'click', pinClicked);
             GraffitiX.map.entities.push(pin);
     };
     
+    function pinClicked(e) {
+        var index = e.target.getText();
+        WinJS.log("Pin " + index + " clicked", "Event", "info");
+    }
+
     var addLocations = function() {
         dataArray.forEach(function(v) {
             tags.push(v);

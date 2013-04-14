@@ -10,7 +10,7 @@
         initialize: function () {
             "use strict";
             
-            Microsoft.Maps.loadModule('Microsoft.Maps.Map', { callback: initMap, culture: 'en-us', homeRegion: 'US', zoom: 18 });
+            Microsoft.Maps.loadModule('Microsoft.Maps.Map', { callback: initMap, culture: 'en-us', homeRegion: 'US' });
             function initMap() {
                 var mapOptions =
                 {
