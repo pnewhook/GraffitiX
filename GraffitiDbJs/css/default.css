@@ -6,7 +6,11 @@
 }
 
 #thumbnails {
-    background: purple;
+    background-image: url('/images/Brick_Wall_BackGround.png');
+}
+
+#SidebarLogo {
+    width: 100%;
 }
 
 #mapDiv{
