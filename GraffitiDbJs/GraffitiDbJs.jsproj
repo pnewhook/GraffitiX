@@ -71,6 +71,8 @@
     <Content Include="images\art\Santiago_2.jpg" />
     <Content Include="images\art\Santiago_3.jpg" />
     <Content Include="images\art\Santiago_4.jpg" />
+    <Content Include="images\Brick_Wall_BackGround.png" />
+    <Content Include="images\Logo-NoWall.png" />
     <Content Include="images\logo.scale-100.png" />
     <Content Include="images\logo.scale-140.png" />
     <Content Include="images\logo.scale-180.png" />
