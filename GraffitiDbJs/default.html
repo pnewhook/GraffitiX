@@ -33,5 +33,20 @@
         </div>
 
     </div>
+    <div id="myflyout" data-win-control="WinJS.UI.Flyout">
+        <div>
+            <input type="text" id="filename" />
+        </div>
+        <div>
+            <label for="artist">Artist</label>
+            <input id="artist" />
+        </div>
+        <button type="submit" id="submit">Save</button>
+    </div>
+    <div data-win-control="WinJS.UI.AppBar">
+        <button id="addbutton" data-win-control="WinJS.UI.AppBarCommand" data-win-options="{id:'cmdAdd',label:'Add',icon:'add',section:'global',tooltip:'Add item'}">
+        </button>
+    </div>
+    <script src="js/appbarmethods.js"></script>
 </body>
 </html>

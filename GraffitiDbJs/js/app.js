@@ -10,6 +10,7 @@
         initialize: function () {
             "use strict";
             
+// ReSharper disable UseOfImplicitGlobalInFunctionScope
             Microsoft.Maps.loadModule('Microsoft.Maps.Map', { callback: initMap, culture: 'en-us', homeRegion: 'US' });
             function initMap() {
                 var mapOptions =
@@ -20,6 +21,8 @@
                 };
 
                 GraffitiX.map = new Microsoft.Maps.Map(document.getElementById("mapDiv"), mapOptions);
+                // ReSharper restore UseOfImplicitGlobalInFunctionScope
+
                 GraffitiX.addLocations();
             }
         }

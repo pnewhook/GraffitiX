@@ -23,6 +23,9 @@
 #thumbnailListView {
     height: 100%;
 }
+#infoBox {
+    width: 500px;
+}
 @media screen and (-ms-view-state: fullscreen-landscape) {
 }
 

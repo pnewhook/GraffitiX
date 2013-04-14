@@ -19,7 +19,6 @@
         { longitude: -71.617727, latitude: -33.048745, img: "../images/art/IMG_4449.jpg", title: "Valparaiso 7" },
         { longitude: -71.610861, latitude: -33.045939, img: "../images/art/IMG_4465.jpg", title: "Valparaiso 8" },
         { longitude: -71.609659, latitude: -33.04817, img: "../images/art/IMG_4469.jpg", title: "Valparaiso 9" },
-        { longitude: -70.652046, latitude: -33.441218, img: "../images/art/Santiago_1.jpg", title: "Santiago 2" },
         { longitude: -70.657883, latitude: -33.441075, img: "../images/art/Santiago_2.jpg", title: "Santiago 2" },
         { longitude: -70.653334, latitude: -33.441648, img: "../images/art/Santiago_3.jpg", title: "Santiago 3" },
         { longitude: -70.649385, latitude: -33.437745, img: "../images/art/Santiago_4.jpg", title: "Santiago 4" }
@@ -28,16 +27,39 @@
 
     tags.oniteminserted = function (eventInfo) {
             var item = eventInfo.detail.value;
-            WinJS.log("Adding image " + item.title, "binding", "info");
+            WinJS.log && WinJS.log("Adding image " + item.title, "binding", "info");
             var loc = new Microsoft.Maps.Location(item.latitude, item.longitude);
             var pin = new Microsoft.Maps.Pushpin(loc, { text: eventInfo.detail.index.toString() });
-            Microsoft.Maps.Events.addHandler(pin, 'click', pinClicked);
+            Microsoft.Maps.Events.addHandler(pin, 'click', showDetailsPushPin);
             GraffitiX.map.entities.push(pin);
     };
-    
-    function pinClicked(e) {
+    var pinInfobox;
+    function showDetailsPushPin(e) {
         var index = e.target.getText();
-        WinJS.log("Pin " + index + " clicked", "Event", "info");
+        showDetails(index);
+    }
+    
+    function showDetails(index) {
+        var graffitiItem = tags.getAt(index);
+        var loc = new Microsoft.Maps.Location(graffitiItem.latitude, graffitiItem.longitude);
+        GraffitiX.map.setView({center:loc});
+        WinJS.log && WinJS.log("Pin " + graffitiItem.title + " clicked", "Event", "info");
+        var loc = new Microsoft.Maps.Location(graffitiItem.latitude, graffitiItem.longitude);
+        var infoBoxOptions = { width: 200, height: 100, showCloseButton: true, zIndex: 0, offset: new Microsoft.Maps.Point(10, 0), showPointer: true, htmlContent: '<img src="' + graffitiItem.img + '" id="infoBox"/>' };
+        //{
+        //    title: graffitiItem.title,
+        //    visible: true,
+        //    offset: new Microsoft.Maps.Point(0, 15),
+        //    htmlContent: htmlGraffitiContent
+        //}
+        pinInfobox = new Microsoft.Maps.Infobox(loc, infoBoxOptions);
+        Microsoft.Maps.Events.addHandler(pinInfobox, "click", closeInfoBox);
+        GraffitiX.map.entities.push(pinInfobox);
+
+    }
+
+    function listItemInvoked(e) {
+        showDetails(e.detail.itemIndex);
     }
 
     var addLocations = function() {
@@ -46,8 +68,16 @@
         });
     };
 
+    function closeInfoBox(e) {
+        var element = document.getElementById("infoBox");
+        element.parentNode.removeChild(element);
+    }
+    document.addEventListener("iteminvoked", listItemInvoked);
+    
     WinJS.Namespace.define("GraffitiX", {
         taglist: tags,
-        addLocations: addLocations
+        addLocations: addLocations,
+        listItemInvoked: listItemInvoked,
+        file:null
     });
 })();
